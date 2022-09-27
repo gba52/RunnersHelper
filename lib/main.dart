@@ -1,87 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Runners Helper Application',
-      theme: ThemeData(
-        primarySwatch: Colors.cyan,
-      ),
-      home: DefaultTabController(
-        length: 1,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              tabs: [
-                Tab(icon: new Image.asset('assets/ic_converter.png')),
-                Tab(icon: Icon(Icons.access_alarm_rounded)),
-              ],
-            ),
-            title: const Text('Runners Helper'),
-          ),
-          body: const TabBarView(
-            children: [
-              ConverterPage(),
-            ]
-          )
-        )
-      )
-    );
-  }
-}
-
-class ConverterPage extends StatefulWidget {
-  const ConverterPage({Key? key}) : super(key: key);
-
-  @override
-  State<ConverterPage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<ConverterPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Runners Helper Application'),
+        ),
+        body: const Center(
+          child: Text('This will help you with all your running needs',
+            style: TextStyle(fontSize: 24),) ,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
