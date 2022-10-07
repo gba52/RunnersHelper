@@ -11,14 +11,20 @@ class MyApp extends StatelessWidget {
           title: const Text('Runners Helper Application'),
         ),
         body: Container(
+          margin:EdgeInsets.all(50.0),
+          width: 300.0,
+          height: 300.0,
           decoration: BoxDecoration(
             color:Colors.orange,
             gradient: LinearGradient(
               begin: Alignment(0.0, 0.5),
               end: Alignment(0.0, 1.0),
               colors: [Colors.purple.shade50, Colors.purple.shade500] ),
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.zero
+            image:DecorationImage(
+              image:NetworkImage('https://openclipart.org/image/400px/270138'),
+              fit:BoxFit.scaleDown,
+            ),
+            shape: BoxShape.circle
           )
         )
       ),
