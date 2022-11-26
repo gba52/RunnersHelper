@@ -58,7 +58,7 @@ class _SplitCalculatorState extends State<SplitCalculatorPage> {
               });
             },
           ),
-          const TimeInputField(key: text),
+          const TimeInputField(),
           const TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
