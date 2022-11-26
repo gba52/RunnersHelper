@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'unused_page.dart';
+import 'splitcalc_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,27 +27,13 @@ class MyApp extends StatelessWidget {
               Tab(icon: Icon(Icons.question_mark), text: "Unused",)
             ],),
           ),
-          body: TabBarView(children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://openclipart.org/image/400px/270138'),
-                  fit: BoxFit.cover),
-              ),
-            ),Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://openclipart.org/image/400px/323666'),
-                  fit: BoxFit.cover),
-              ),
-            ),Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://openclipart.org/image/400px/183633'),
-                  fit: BoxFit.cover),
-              ),
-            ),
-          ],),
+          body: TabBarView(
+            children: [
+              SplitCalculatorPage(),
+              UnusedPage(),
+              UnusedPage(),
+            ],
+          ),
         ),
       ),
     );
