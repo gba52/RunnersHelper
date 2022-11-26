@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:runners_helper/TimeInputField.dart';
+import 'TimeInputField.dart';
 
 class DistanceOption {
   String displayName;
@@ -17,15 +19,15 @@ class SplitCalculatorPage extends StatefulWidget {
 
 class _SplitCalculatorState extends State<SplitCalculatorPage> {
 
-  final items = [
-    DistanceOption("1500 m", 1500),
-    DistanceOption("5 km", 5000),
-    DistanceOption("10 km", 10000),
-    DistanceOption("Half Marathon", 21100),
-    DistanceOption("Marathon", 42200),
+  var items = [
+    "1500 m",
+    "5 km",
+    "10 km",
+    "Half Marathon",
+    "Marathon",
   ];
 
-  DistanceOption dropDownValue = DistanceOption("1500 m", 1500);
+  String dropDownValue = "1500 m";
 
   @override
   Widget build(BuildContext context) {
@@ -42,20 +44,28 @@ class _SplitCalculatorState extends State<SplitCalculatorPage> {
             icon: const Icon(Icons.keyboard_arrow_down),
 
             // Array list of items
-            items: items.map((DistanceOption item) {
+            items: items.map((String item) {
               return DropdownMenuItem(
                 value: item,
-                child: Text(item.displayName),
+                child: Text(item),
               );
             }).toList(),
             // After selecting the desired option,it will
             // change button value to selected value
-            onChanged: (DistanceOption? newValue) {
+            onChanged: (String? newValue) {
               setState(() {
                 dropDownValue = newValue!;
               });
             },
           ),
+          const TimeInputField(key: text),
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Desired Time',
+            ),
+            keyboardType: TextInputType.number,
+          )
         ],
       ),
     );
